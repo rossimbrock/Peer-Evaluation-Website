@@ -1,0 +1,2 @@
+class TechTaskEvaluation < ApplicationRecord
+end

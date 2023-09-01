@@ -1,0 +1,19 @@
+<% #Owner: Charles Kluznik %>
+<% #Date: 11/29/2022 %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "teams", "data-turbo-track": "reload" %>
+<% end %>
+<h1>Modifying Team Members of: <%=@team.name%></h1>
+<%= form_for :changes, url: "submit_member" do |form| %>
+
+  <p>Student: <%= form.select "student_id", Student.pluck(:namedotnumber) %></p>
+  <div class = "form-group">
+    <%= form.label "Do you want to add or remove the student?" %>
+    <br>
+    <%= form.radio_button :add, true, :checked => true%> 
+    <%= form.label :add, "Add", :value => "true" %>
+    <%= form.radio_button :add, false, :checked => false%>
+    <%= form.label :add, "Remove", :value => "true" %>
+    </div>
+    <%= form.submit %>
+<% end %>

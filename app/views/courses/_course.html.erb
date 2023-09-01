@@ -1,0 +1,30 @@
+<% #Owner: Joel Varughese %>
+<% #Date: 12/04/2022 %>
+<head>
+<%= stylesheet_link_tag 'courses', media: "all" %>
+</head>
+<div id="<%= dom_id course %>">
+<p><b>Course ID: <%= course.id %> </b></p>
+<p>Course Subject: <%= course.subject %> </p>
+<p>Course Number: <%= course.number %></p>
+<p>Semester: <%= course.semester %></p>
+<p>Admin ID: <%= course.admin_id %></p>
+<br>
+
+<p> Team(s) that are part of the course and their respective members: </p>
+<% teams = (Team.where(course_id: course.id).map {|e| e.name}) %> 
+<% students = Team.where(course_id: course.id).map {|team| (team.students.length > 0 ? team.students.map {|student| student.namedotnumber}.join(", ") : "No Members")}%>
+
+<% i = 0 %>
+<% while i < teams.length() %>
+<p><%=  teams[i] + ": " + students[i]%></p>
+    <% i+=1 %>
+<% end %>
+
+<br> 
+<p>Created at: <%= course.created_at %></p>
+<p>Updated at: <%= course.updated_at %></p>
+<p><%= link_to "Show this course    ", course %></p>
+
+<br><br>
+</div>

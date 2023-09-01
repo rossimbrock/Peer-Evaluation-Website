@@ -1,0 +1,105 @@
+<!--Author: Ross Imbrock-->
+<!--Created on: 11/29/22-->
+<%= form_with(model: project_evaluation) do |form| %>
+<p>
+  Teams: <%= form.select :teamid , Student.find_by(namedotnumber: current_user.namedotnumber).teams.map {|team| team.id} %><br>
+</p>
+<!--Manager Questions-->
+  <div class = "form-group">
+    <%= form.label "Select the option you believe reflects the effort and contributions of the Overall Project Manager.", style: "display: block"%>
+    <%= form.radio_button :overall, 'excellent', :checked => false%>
+    <%= form.label :overall, "Excellent", :value => "true" %><br />
+    <%= form.radio_button :overall, 'great', :checked => false%>
+    <%= form.label :overall, "Great", :value => "true" %><br />
+    <%= form.radio_button :overall, 'average', :checked => false%>
+    <%= form.label :overall, "Average", :value => "true" %><br />
+    <%= form.radio_button :overall, 'poor', :checked => false%>
+    <%= form.label :overall, "Poor", :value => "true" %>
+  </div>
+
+  <div class = "form-group">
+    <%= form.label "Select the option you believe reflects the effort and contributions of the Implementation Manager.", style: "display: block" %>
+    <%= form.radio_button :implementation, 'excellent', :checked => false%>
+    <%= form.label :implementation, "Excellent", :value => "true" %><br />
+    <%= form.radio_button :implementation, 'great', :checked => false%>
+    <%= form.label :implementation, "Great", :value => "true" %><br />
+    <%= form.radio_button :implementation, 'average', :checked => false%>
+    <%= form.label :implementation, "Average", :value => "true" %><br />
+    <%= form.radio_button :implementation, 'poor', :checked => false%>
+    <%= form.label :implementation, "Poor", :value => "true" %>
+  </div>
+
+  <div class = "form-group">
+    <%= form.label "Select the option you believe reflects the effort and contributions of the Documentation Manager.", style: "display: block" %>
+    <%= form.radio_button :documentation, 'excellent', :checked => false%>
+    <%= form.label :documentation, "Excellent", :value => "true" %><br />
+    <%= form.radio_button :documentation, 'great', :checked => false%>
+    <%= form.label :documentation, "Great", :value => "true" %><br />
+    <%= form.radio_button :documentation, 'average', :checked => false%>
+    <%= form.label :documentation, "Average", :value => "true" %><br />
+    <%= form.radio_button :documentation, 'poor', :checked => false%>
+    <%= form.label :documentation, "Poor", :value => "true" %>
+  </div>
+
+  <div class = "form-group">
+    <%= form.label "Select the option you believe reflects the effort and contributions of the Testing Manager.", style: "display: block" %>
+    <%= form.radio_button :testing, 'excellent', :checked => false%>
+    <%= form.label :testing, "Excellent", :value => "true" %><br />
+    <%= form.radio_button :testing, 'great', :checked => false%>
+    <%= form.label :testing, "Great", :value => "true" %><br />
+    <%= form.radio_button :testing, 'average', :checked => false%>
+    <%= form.label :testing, "Average", :value => "true" %><br />
+    <%= form.radio_button :testing, 'poor', :checked => false%>
+    <%= form.label :testing, "Poor", :value => "true" %>
+  </div>
+
+  <div class = "form-group">
+    <%= form.label "Select the option you believe reflects the effort and contributions of the Meeting Manager.", style: "display: block" %>
+    <%= form.radio_button :meeting, 'excellent', :checked => false%>
+    <%= form.label :meeting, "Excellent", :value => "true" %><br />
+    <%= form.radio_button :meeting, 'great', :checked => false%>
+    <%= form.label :meeting, "Great", :value => "true" %><br />
+    <%= form.radio_button :meeting, 'average', :checked => false%>
+    <%= form.label :meeting, "Average", :value => "true" %><br />
+    <%= form.radio_button :meeting, 'poor', :checked => false%>
+    <%= form.label :meeting, "Poor", :value => "true" %>
+  </div>
+
+<!--Team Questions-->
+
+  <div class = "form-group">
+    <%= form.label "Describe the best contributions each team member made to the project.", style: "display: block" %>
+    <%= form.text_area :best_qualities, class: "form-control"%>
+  </div>
+
+  <div class = "form-group">
+    <%= form.label "Describe what each team member could improve on in the future.", style: "display: block" %>
+    <%= form.text_area :improve_on, class: "form-control" %>
+  </div>
+
+  <div class = "form-group">
+    <%= form.label "Provide any comments you would like the professor or grader to know.", style: "display: block" %>
+    <%= form.text_area :professor, class: "form-control" %>
+  </div>
+
+  <div class = "form-group">
+    <%= form.label "Provide any other remarks you would like make.", style: "display: block" %>
+    <%= form.text_area :other, class: "form-control" %>
+  </div>
+
+  <div class = "form-group">
+    <%= form.submit "Submit" %>
+  </div>
+
+  <% if project_evaluation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(project_evaluation.errors.count, "error") %> prohibited this project_evaluation from being saved:</h2>
+
+      <ul>
+        <% project_evaluation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>

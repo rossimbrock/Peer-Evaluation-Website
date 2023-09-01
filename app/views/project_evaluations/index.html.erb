@@ -1,0 +1,9 @@
+<!--Author: Ross Imbrock-->
+<!--Created on: 11/29/22-->
+<head>
+<%= stylesheet_link_tag 'evaluation', media: "all" %>
+</head>
+<p style="color: green"><%= notice %></p>
+<h1>Project Team Evaluation</h1>
+<p class = "index">This peer evaluation must be completed individually by you and not with your team. All of your answers will be kept confidential.</p>
+<%= button_to "Begin Team Evaluation", new_project_evaluation_path, :class => "start", :method => "get" %>

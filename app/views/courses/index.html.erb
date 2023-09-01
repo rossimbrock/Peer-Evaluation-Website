@@ -1,0 +1,17 @@
+<% #Owner: Joel Varughese %>
+<% #Date: 12/04/2022 %>
+<head>
+<%= stylesheet_link_tag 'courses', media: "all" %>
+</head>
+<p style="color: green"><%= notice %></p>
+
+<h1>Courses</h1>
+
+<div id="courses">
+  <% @courses.each do |course| %>
+    <%= render course %>
+
+  <% end %>
+</div>
+
+<%= link_to "New course", new_course_path %>

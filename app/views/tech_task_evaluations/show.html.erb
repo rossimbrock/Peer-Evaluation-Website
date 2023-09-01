@@ -1,0 +1,13 @@
+<!--Author: Ross Imbrock-->
+<!--Created on: 12/04/22-->
+<head>
+<%= stylesheet_link_tag 'evaluation', media: "all" %>
+</head>
+<p style="color: green"><%= notice %></p>
+
+<%= render @tech_task_evaluation %>
+
+<div>
+  <%= link_to "Edit Evaluation", edit_tech_task_evaluation_path(@tech_task_evaluation) %> |
+  <%= link_to "Delete Evaluation", @tech_task_evaluation, data: {turbo_method: :delete, turbo_confirm: "Are you sure you would like to delete your evaluation?"} %>
+</div>

@@ -1,0 +1,13 @@
+<% #Owner: Charles Kluznik %>
+<% #Date: 11/29/2022 %>
+<div id="<%= dom_id team %>" class="team">
+<p>Team Name: <%= team.name %> </p>
+<p>Course ID: <%= team.course_id %><p>
+<p>Created at: <%= team.created_at %><p>
+<p>Updated at: <%= team.updated_at %><p>
+<p>Members: <%=  team.students.length > 0 ? team.students.map {|student| student.namedotnumber}.join(", ") : "No Members"%>
+<p><%= link_to "Modify Team Members", new_member_path(team.id), id: "modify_members_link", class: "action_link" %></p>
+<% if render_show then%>
+<p><%= link_to "Show this team", team,  id: "show_team_link", class: "action_link" %></p>
+<% end %>
+</div>

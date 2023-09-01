@@ -1,0 +1,29 @@
+<!-- Owner: Ross Imbrock !-->
+<!-- Date: 12/07/2022 !-->
+<p style="color: green"><%= notice %></p>
+<head>
+<%= stylesheet_link_tag 'teams', media: "all" %>
+</head>
+<h1>All Project Evaluations</h1>
+
+<!-- Shows all the evaluations -->
+<div id="project_evaluations">
+  <% @project_evaluations.each do |project_evaluation| %>
+    <%= render project_evaluation %>
+    <p>
+      <%= link_to "Show this project evaluation", project_evaluation %>
+    </p>
+  <% end %>
+</div>
+
+<h1>All Tech Task Evaluations</h1>
+
+<div id="tech_task_evaluations">
+  <% @tech_task_evaluations.each do |project_evaluation| %>
+    <%= render project_evaluation %>
+    <p>
+      <%= link_to "Show this project evaluation", project_evaluation %>
+    </p>
+  <% end %>
+</div>
+

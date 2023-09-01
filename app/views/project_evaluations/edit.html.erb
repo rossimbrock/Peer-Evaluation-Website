@@ -1,0 +1,15 @@
+<!--Author: Ross Imbrock-->
+<!--Created on: 11/29/22-->
+<head>
+<%= stylesheet_link_tag 'evaluation', media: "all" %>
+</head>
+<h1>Editing Project Team Evaluation</h1>
+
+<%= render "form", project_evaluation: @project_evaluation %>
+
+<br>
+
+<div>
+  <%= link_to "Show this project evaluation", @project_evaluation %> |
+  <%= link_to "Back to project evaluations", project_evaluations_path %>
+</div>

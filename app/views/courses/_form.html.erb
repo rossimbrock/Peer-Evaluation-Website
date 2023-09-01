@@ -1,0 +1,28 @@
+<!--Author: Joel Varughese-->
+<!--Date: 11/29/22-->
+<%= form_with(model: course) do |form| %>
+  <head>
+  <%= stylesheet_link_tag 'courses', media: "all" %>
+  </head>
+  <div class = "form">
+    Subject: <%= form.text_field :subject %><br>
+    Course Number: <%= form.text_field :number %><br>
+    Semester: <%= form.text_field :semester %><br>
+    Admin ID: <%= form.text_field :admin_id %><br>
+  </div>
+  <% if course.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+        <% course.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="submit">
+    <%= form.submit %>
+  </div>
+<% end %>

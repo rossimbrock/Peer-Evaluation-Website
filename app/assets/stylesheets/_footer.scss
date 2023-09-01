@@ -1,0 +1,45 @@
+// Created By: David Paquin
+// Creation Date: 11/20/22
+
+@import "common";
+
+footer {
+  text-align: center;
+  background-color: #ffcccb;
+  background-color: $osu-scarlet;
+  font-weight: bold;
+  border: 0.1em solid gray;
+  border-radius: 20px;
+  font-family: $osu-font-primary-sans;
+  padding: 1em;
+  width: 100%;
+  display: inline-grid;
+  font-size: 1em;
+  box-sizing: border-box;
+  margin: 10px auto 0px;
+}
+
+#backToTop {
+  grid-row:1;
+  grid-column:3;
+}
+
+#backToTop > a {
+  text-decoration:none;
+  color:black;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: .2em;
+  background-color:#87CEEB;
+}
+
+#info {
+  grid-row:1;
+  grid-column:2;
+}
+
+#foo {
+  grid-row:1;
+  grid-column:1;
+}
+

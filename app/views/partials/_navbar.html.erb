@@ -1,0 +1,54 @@
+<%# Created By: David Paquin %>
+<%# Creation Date: 11/20/22 %>
+<%# Edit By: Alex Echanove %>
+<%# Date: 11/29/22 %>
+<%# Edit By: Ross Imbrock %>
+<%# Date: 12/04/22 %>
+<%# Edit By: Ross Imbrock %>
+<%# Date: 12/07/22 %>
+
+<%= stylesheet_link_tag '_navbar', media: "all" %>
+
+<nav class="navbar navbar-expand">
+  <a class="navbar-brand" href="/">P.E. 3000</a>
+    <ul class="navbar-nav">
+    <% if user_signed_in? %>
+        <li class = "nav-item">
+            <%= link_to 'Sign Out', destroy_user_session_path , data: {turbo_method: :delete}, class: 'nav-link' %>
+        </li>
+
+        <% if current_user.admin?%>
+            <li class = "nav-item">
+              <%= link_to 'Profile', "/admins/#{(Admin.find_by namedotnumber: current_user.namedotnumber).id}" , class: 'nav-link'%>
+            </li>
+            <li class = "nav-item">
+			    <%= link_to "Courses", courses_path , class: 'nav-link'%>
+            </li>
+            <li class = "nav-item">
+			    <%= link_to "Teams", teams_path , class: 'nav-link'%>
+            </li>
+            <li class = "nav-item">
+			    <%= link_to "Evaluations", evaluations_path , class: 'nav-link'%>
+            </li>
+        <% else %>
+            <li class = "nav-item">
+              <%= link_to 'Profile', "/students/#{(Student.find_by namedotnumber: current_user.namedotnumber).id}" , class: 'nav-link'%>
+            </li>
+            <li class = "nav-item">
+                <%= link_to 'Project Evaluation', project_evaluations_url , class: 'nav-link'%>
+            </li>
+            <li class = "nav-item">
+                <%= link_to 'Tech Task Evaluation', tech_task_evaluations_url , class: 'nav-link'%>
+            </li>
+        <% end %>
+
+    <% else %>
+        <li class = "nav-item">
+            <%= link_to 'Register', new_user_registration_path, class: 'nav-link'%>
+        </li>
+        <li class = "nav-item">
+            <%= link_to 'Login', new_user_session_path, class: 'nav-link'%>
+        </li>
+    <% end %>
+    </ul>
+</nav>

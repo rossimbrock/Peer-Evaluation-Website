@@ -1,0 +1,106 @@
+//Author: Charles Kluznik
+//Created on: 11/29/22
+//Edited by: Charles Kluznik 12/05/2022
+//Updated button styling for New Team
+
+@import "bootstrap";
+@import "common";
+
+.team {
+    background-color: $osu-gray-light60;
+    border-top: 1px solid $osu-black;
+    border-bottom: 1px solid $osu-black;
+    margin: auto auto;
+}
+  
+body {
+    color: $osu-black;
+    font-family: $osu-font-primary-sans;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+h1 {
+    background-color: #BA0C2F;
+    color: $osu-white;
+    margin: 0 0 20px 0;
+    padding: 6px 0 0 0;
+}
+
+select, p > input {
+    width: 15%;
+}
+
+.form-group > label {
+    margin-right: 10px;
+}
+
+.form-group > input:last-child {
+    width: 15%;
+}
+
+//disable bottom border on the first topic (fix double border)
+.team:first-child {
+    border-bottom-width: 0px;
+    padding-bottom: 16px;
+    margin-bottom: -16px;
+}
+  
+  //disable top border on the last topic (fix double border)
+.team:last-child {
+    border-top-width: 0px;
+    padding-top: 16px;
+}
+  
+.team:nth-child(even) {
+    background-color: $osu-white;
+}
+
+.action_link {
+    border: 2px solid black;
+    width: 15rem;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 3px 5px;
+    display: inline-block;
+    color: $osu-gray-dark40;
+    text-decoration: none;
+    font-weight: 800;
+    background-color: powderblue;
+}
+
+.action_link:hover {
+	background-color: aliceblue;
+}
+
+#new_team_link {
+    background-color: lime;
+}
+
+#new_team_link:hover {
+    background-color: greenyellow;
+}
+
+#del_team_link {
+    margin-top: 15px;
+    background-color: $osu-scarlet;
+    color: $osu-gray-light20;
+}
+
+#del_team_link:hover {
+	background-color: red;
+}
+
+.rem_border > .team {
+	border: none;
+	background-color: $osu-white;
+}
+
+#modify_members_link {
+    margin-bottom: -15px;
+}
+
+#show_team_link {
+    margin-bottom: 0;
+}

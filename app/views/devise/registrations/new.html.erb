@@ -1,0 +1,60 @@
+<!--
+Author By: Alex Echanove
+Date: 12/4/22
+-->
+
+<%= stylesheet_link_tag 'devise', media: "all" %>
+
+<h1>Sign up</h1>
+
+<div class="login">
+<div class="card">
+<div class="card-block">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <h3 class="field">
+    <%= f.label :First_name %><br />
+    <%= f.text_field :first_name, autocomplete: "first_name", placeholder: "First Name" %>
+  </h3>
+
+  <h3 class="field">
+    <%= f.label :Last_name %><br />
+    <%= f.text_field :last_name, autocomplete: "last_name", placeholder: "Last Name" %>
+  </h3>
+
+  <h3 class="field">
+    <%= f.label :Name_dot_number %><br />
+    <%= f.text_field :namedotnumber, autocomplete: "namedotnumber", placeholder: "Name.#" %>
+  </h3>
+
+  <h3 class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email"%>
+  </h3>
+
+  <h3 class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" , placeholder: "Password" %>
+  </h3>
+
+  <h3 class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" , placeholder: "Confirm Password" %>
+  </h3>
+
+  <h3 class="dropdown">
+    <%= f.select :role, options_for_select(['student','admin']) %> 
+  </h3>
+
+  <h3 class="actions">
+    <%= f.submit "Sign up" %>
+  </h3>
+<% end %>
+
+</div>
+</div>
+</div>

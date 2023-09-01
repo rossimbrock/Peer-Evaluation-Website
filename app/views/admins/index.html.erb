@@ -1,0 +1,15 @@
+<!-- Owner: David Paquin !-->
+<!-- Date: 11/29/2022 !-->
+<p style="color: green"><%= notice %></p>
+
+<h1>Admins</h1>
+
+<div id="admins">
+  <% @admins.each do |admin| %>
+    <p>
+      <%= link_to admin[:first_name].to_s+" "+admin[:last_name].to_s, admin %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New admin", new_admin_path %>

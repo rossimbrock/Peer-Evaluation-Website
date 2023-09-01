@@ -1,0 +1,26 @@
+//Author: Joel Varughese
+//Created on: 12/04/22
+@import "bootstrap";
+@import "common";
+
+body {
+    color: $osu-black;
+    font-family: $osu-font-primary-sans;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+p {
+    padding: 5px;
+}
+
+h1 {
+    background-color: #BA0C2F;
+    color: $osu-white;
+    margin: 0 0 20px 0;
+    padding: 6px 0 0 0;
+}
+
+select, input {
+    width: 15%;
+}

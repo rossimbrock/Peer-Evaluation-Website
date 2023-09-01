@@ -1,0 +1,42 @@
+<!--
+author: Joel Varughese
+creation_date: 11/29/2022
+title: home
+style: "index"
+edit by: Alex Echanove
+date:    11/29/2022
+edit: Included devise features 
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag 'landing', media: "all" %>
+	<title>Landing page</title>
+</head>
+<body>
+
+	<div class="container">
+		<div class="initial">
+			<h1 class="intro">Welcome!</h1>
+			<p>
+				Welcome to the peer evaluation website! This website allows for students to evaluate other students who are in the same group. Instructors are able to create, edit, and delete groups of students. 
+				<br> 
+			</p>
+			<% if current_user %>
+				<p>Hello <%= current_user.email %>!</p>	
+				<p>You are a <%= current_user.role %></p>
+				<p>Your name is <%= current_user.first_name %></p>
+				<% if current_user.admin? %>
+					<p>Your admin id: <%= (Admin.find_by namedotnumber: current_user.namedotnumber).id %> </p>
+				<% else %>
+					<p>Your student id: <%= (Student.find_by namedotnumber: current_user.namedotnumber).id %> </p>
+				<% end %>
+			<% else %>
+				<p>Please click on register or login on the navigation bar.</p>	
+			<% end %>
+		</div>
+	</div>
+	
+</body>
+</html>

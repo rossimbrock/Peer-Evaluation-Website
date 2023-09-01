@@ -1,0 +1,64 @@
+<!--Author: Ross Imbrock-->
+<!--Created on: 12/03/22-->
+<%= form_with(model: tech_task_evaluation) do |form| %>
+<p>
+  Teams: <%= form.select :teamid , Student.find_by(namedotnumber: current_user.namedotnumber).teams.map {|team| team.id} %><br>
+</p>
+<!--Manager Question-->
+  <div class = "form-group">
+    <%= form.label "Select the option you believe reflects the effort and contributions of the Tech Task Overall Manager.", style: "display: block" %>
+    <%= form.radio_button :overall, 'excellent', :checked => false%>
+    <%= form.label :overall, "Excellent", :value => "true" %><br />
+    <%= form.radio_button :overall, 'great', :checked => false%>
+    <%= form.label :overall, "Great", :value => "true" %><br />
+    <%= form.radio_button :overall, 'average', :checked => false%>
+    <%= form.label :overall, "Average", :value => "true" %><br />
+    <%= form.radio_button :overall, 'poor', :checked => false%>
+    <%= form.label :overall, "Poor", :value => "true" %>
+  </div>
+<!--Team Questions-->
+  <div class = "form-group">
+    <%= form.label "Describe each team member's effort and contributions to the research in this project.", style: "display: block" %>
+    <%= form.text_area :research, class: "form-control"  %>
+  </div>
+
+  <div class = "form-group">
+    <%= form.label "Describe each team member's effort and performance during the presentation.", style: "display: block" %>
+    <%= form.text_area :presentation, class: "form-control"  %>
+  </div>
+
+  <div class = "form-group">
+    <%= form.label "Describe the best contributions each team member made to the project.", style: "display: block" %>
+    <%= form.text_area :best_qualities, class: "form-control"  %>
+  </div>
+
+  <div class = "form-group">
+    <%= form.label "Describe what each team member could improve on in the future.", style: "display: block" %>
+    <%= form.text_area :improve_on, class: "form-control"  %>
+  </div>
+
+  <div class = "form-group">
+    <%= form.label "Provide any comments you would like the professor or grader to know.", style: "display: block" %>
+    <%= form.text_area :professor, class: "form-control"  %>
+  </div>
+
+  <div class = "form-group">
+    <%= form.label "Provide any other remarks you would like make.", style: "display: block" %>
+    <%= form.text_area :other, class: "form-control"  %>
+  </div>
+
+  <div>
+    <%= form.submit "Submit" %>
+  </div>
+    <% if tech_task_evaluation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(tech_task_evaluation.errors.count, "error") %> prohibited this tech_task_evaluation from being saved:</h2>
+
+      <ul>
+        <% tech_task_evaluation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>

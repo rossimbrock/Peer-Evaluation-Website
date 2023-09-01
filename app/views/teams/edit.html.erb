@@ -1,0 +1,15 @@
+<% #Owner: Charles Kluznik %>
+<% #Date: 11/29/2022 %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "teams", "data-turbo-track": "reload" %>
+<% end %>
+<h1>Editing Team: <%= @team.name %></h1>
+
+<%= render "form", team: @team %>
+
+<br>
+
+<div>
+  <%= link_to "Show this team", @team %> |
+  <%= link_to "Back to teams", teams_path %>
+</div>

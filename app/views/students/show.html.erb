@@ -1,0 +1,15 @@
+<!-- Owner: David Paquin !-->
+<!-- Date: 11/29/2022 !-->
+<%= stylesheet_link_tag "profile", media: "all" %>
+<p style="color: green"><%= notice %></p>
+
+<%= render @student %>
+
+First name: <%= @student[:first_name] %><br>
+Last name: <%= @student[:last_name] %><br>
+OSU name.#: <%= @student[:namedotnumber] %><br>
+<br>
+<div>
+  <%#= link_to "Edit Profile Information", edit_student_path(@student) %><br>
+  <%= button_to "Delete Account", @student, method: :delete %>
+</div>

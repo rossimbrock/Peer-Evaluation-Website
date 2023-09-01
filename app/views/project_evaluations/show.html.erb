@@ -1,0 +1,12 @@
+<!--Author: Ross Imbrock-->
+<!--Created on: 11/29/22-->
+<head>
+<%= stylesheet_link_tag 'evaluation', media: "all" %>
+</head>
+<p style="color: green"><%= notice %></p>
+
+<%= render @project_evaluation %>
+
+<div>
+  <%= link_to "Delete Evaluation", @project_evaluation, data: {turbo_method: :delete, turbo_confirm: "Are you sure you would like to delete your evaluation?"} %>
+</div>

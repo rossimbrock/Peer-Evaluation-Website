@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  overall: MyString
+  research: MyString
+  presentation: MyString
+  best_qualities: MyString
+  improve_on: MyString
+  professor: MyString
+  other: MyString
+
+two:
+  overall: MyString
+  research: MyString
+  presentation: MyString
+  best_qualities: MyString
+  improve_on: MyString
+  professor: MyString
+  other: MyString
